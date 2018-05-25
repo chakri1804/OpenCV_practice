@@ -7,9 +7,9 @@ import os
 list1 = os.listdir('pos')
 for x in list1:
     print(x)
-    gray = cv2.imread('pos/'+str(x),0)
-    resized_image = cv2.resize(gray, (160,90))
-    cv2.imwrite('pos/'+str(x),resized_image)
+    gray = cv2.imread('pos/arduino.png',0)
+    resized_image = cv2.resize(gray, (46,34))
+    cv2.imwrite('pos/0001.png',resized_image)
     pass
 ##############
 ##############
@@ -21,7 +21,7 @@ list1 = os.listdir('neg')
 for x in list1:
     print(x)
     gray = cv2.imread('neg/'+str(x),0)
-    resized_image = cv2.resize(gray, (700,700))
+    resized_image = cv2.resize(gray, (200,200))
     cv2.imwrite('neg/'+str(x),resized_image)
     pass
 ##############
@@ -54,7 +54,7 @@ def create_pos_n_neg():
         for img in os.listdir(file_type):
 
             if file_type == 'pos':
-                line = file_type+'/'+img+' 1 0 0 160 90\n'
+                line = file_type+'/'+img+' 1 0 0 46 33\n'
                 with open('info.dat','a') as f:
                     f.write(line)
             elif file_type == 'neg':
